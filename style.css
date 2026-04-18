@@ -28,6 +28,8 @@ nav {
 .nav-links a:hover { color:var(--accent); }
 .nav-cta { background:var(--accent); color:#000!important; padding:10px 24px; border-radius:50px; font-weight:600!important; }
 .nav-cta:hover { opacity:.85; }
+.nav-ferramentas { background:rgba(123,47,255,0.15); color:var(--accent3)!important; padding:10px 20px; border-radius:50px; font-weight:600!important; border:1px solid rgba(123,47,255,0.35); transition:all .2s!important; }
+.nav-ferramentas:hover { background:rgba(123,47,255,0.28)!important; border-color:rgba(123,47,255,0.6)!important; color:#fff!important; }
 
 /* HERO */
 .hero {
