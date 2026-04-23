@@ -1,3 +1,36 @@
+// Hamburguer menu
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Fechar ao clicar em qualquer link do menu
+  document.querySelectorAll('.nav-close').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Fechar ao clicar fora do menu
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
 // Scroll reveal
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {

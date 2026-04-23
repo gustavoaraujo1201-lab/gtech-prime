@@ -23,12 +23,15 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">GTech <span>Prime</span></a>
-  <ul class="nav-links">
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#tecnologias">Tecnologias</a></li>
-    <li><a href="#processo">Como Funciona</a></li>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicos" class="nav-close">Serviços</a></li>
+    <li><a href="#tecnologias" class="nav-close">Tecnologias</a></li>
+    <li><a href="#processo" class="nav-close">Como Funciona</a></li>
     <li><a href="ferramentas.html" class="nav-ferramentas">🧰 Ferramentas</a></li>
-    <li><a href="#contato" class="nav-cta">Falar com Especialista</a></li>
+    <li><a href="#contato" class="nav-cta nav-close">Falar com Especialista</a></li>
   </ul>
 </nav>
 

@@ -209,20 +209,129 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:60px
 .reveal { opacity:0; transform:translateY(32px); transition:opacity .7s ease,transform .7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
-/* RESPONSIVE */
-@media(max-width:960px){
-  .contact-wrapper{grid-template-columns:1fr;}
-  .diff-grid{grid-template-columns:1fr;}
-  .footer-top{grid-template-columns:1fr 1fr;}
+/* ── HAMBURGUER ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px; height: 42px;
+  background: rgba(0,229,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 200;
+  flex-shrink: 0;
 }
+.nav-toggle span {
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .contact-wrapper { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
 @media(max-width:768px){
-  nav{padding:16px 24px;}
-  .nav-links{display:none;}
-  .hero-visual{display:none;}
-  .steps::before{display:none;}
-  .form-grid{grid-template-columns:1fr;}
-  footer{padding:48px 24px 28px;}
-  .footer-top{grid-template-columns:1fr;gap:28px;}
-  .footer-bottom{flex-direction:column;text-align:center;}
-  .form-card{padding:32px 24px;}
+  /* Nav */
+  nav { padding: 16px 20px; }
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 90px 28px 40px;
+    background: rgba(8,12,16,0.97);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    gap: 6px;
+    transform: translateY(-110%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    z-index: 150;
+  }
+  .nav-links.open { transform: translateY(0); }
+
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+  .nav-links a:hover { background: rgba(0,229,255,0.06); border-color: var(--border); color: var(--accent); }
+
+  .nav-cta {
+    margin-top: 8px;
+    text-align: center;
+    padding: 14px 24px !important;
+    font-size: 1rem !important;
+  }
+  .nav-ferramentas {
+    text-align: center;
+    padding: 14px 18px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Hero */
+  .hero { padding: 130px 20px 80px; }
+  h1 { font-size: clamp(2.2rem, 9vw, 3.4rem); }
+  .hero p { font-size: 1rem; margin-bottom: 36px; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+  .hero-actions .btn { width: 100%; max-width: 340px; justify-content: center; }
+  .hero-visual { display: none; }
+
+  /* Sections */
+  section { padding: 72px 20px; }
+  h2 { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+  .section-desc { font-size: .95rem; margin-bottom: 40px; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 28px 24px; }
+
+  /* Tech */
+  .tech-intro { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 36px; }
+
+  /* Process */
+  .steps { grid-template-columns: 1fr; gap: 24px; }
+  .steps::before { display: none; }
+  .step { padding: 0; }
+
+  /* Diferenciais */
+  .diff-grid { grid-template-columns: 1fr; gap: 32px; }
+  .diff-right { padding: 32px 24px; }
+  .metric .number { font-size: 2.2rem; }
+
+  /* Contato */
+  .contact-wrapper { grid-template-columns: 1fr; gap: 32px; }
+  .form-card { padding: 28px 20px; }
+  .form-grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  footer { padding: 48px 20px 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+@media(max-width:420px){
+  nav { padding: 14px 16px; }
+  .hero { padding: 110px 16px 60px; }
+  section { padding: 60px 16px; }
+  .form-card { padding: 24px 16px; }
+  footer { padding: 40px 16px 24px; }
+  .chip { font-size: .78rem; padding: 7px 14px; }
 }
