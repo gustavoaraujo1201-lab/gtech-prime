@@ -1,8 +1,9 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
-      "source": "/downloads/(.*).apk",
+      "source": "/downloads/:file.apk",
       "headers": [
         {
           "key": "Content-Type",
@@ -10,7 +11,7 @@
         },
         {
           "key": "Content-Disposition",
-          "value": "attachment"
+          "value": "attachment; filename=\"GTech-Orcamentos.apk\""
         },
         {
           "key": "Cross-Origin-Resource-Policy",
@@ -19,6 +20,10 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         }
       ]
     },
